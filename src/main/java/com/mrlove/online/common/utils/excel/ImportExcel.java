@@ -1,8 +1,8 @@
 package com.mrlove.online.common.utils.excel;
 
 import com.google.common.collect.Lists;
-import com.mrlove.bookshop.common.utils.Reflections;
-import com.mrlove.bookshop.common.utils.excel.annotation.ExcelField;
+import com.mrlove.online.common.utils.Reflections;
+import com.mrlove.online.common.utils.excel.annotation.ExcelField;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;

@@ -1,6 +1,6 @@
 package com.mrlove.online.common.utils;
 
-import com.mrlove.bookshop.common.domain.User;
+
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -35,6 +35,7 @@ public class IdGenerator {
         return rs1;
     }
 
+/*
     public static Object hh(){
         User user = new User();
         user.setUserId("1");
@@ -42,6 +43,7 @@ public class IdGenerator {
         m.add(user);
         return m;
     }
+*/
 
     public static String getMD5String(String str) {
         try {
