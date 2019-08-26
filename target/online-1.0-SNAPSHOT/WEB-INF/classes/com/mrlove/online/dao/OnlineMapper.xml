@@ -1,40 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mrlove.online.dao.OnlineMapper">
-  <resultMap id="BaseResultMap" type="com.mrlove.online.common.domain.Online">
-    <result column="id" jdbcType="VARCHAR" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="pwd" jdbcType="VARCHAR" property="pwd" />
-  </resultMap>
-  <insert id="insert" parameterType="com.mrlove.online.common.domain.Online">
+    <resultMap id="BaseResultMap" type="com.mrlove.online.common.domain.Online">
+        <result column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="pwd" jdbcType="VARCHAR" property="pwd"/>
+    </resultMap>
+    <insert id="insert" parameterType="com.mrlove.online.common.domain.Online">
     insert into online (id, name, pwd
       )
     values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.mrlove.online.common.domain.Online">
-    insert into online
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="name != null">
-        name,
-      </if>
-      <if test="pwd != null">
-        pwd,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="pwd != null">
-        #{pwd,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
+    <insert id="insertSelective" parameterType="com.mrlove.online.common.domain.Online">
+        insert into online
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="pwd != null">
+                pwd,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="pwd != null">
+                #{pwd,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <select id="queryUser" resultMap="BaseResultMap">
+      SELECT name
+      FROM `online`
+      WHERE name = #{username}
+    </select>
+
+    <select id="queryPwd" resultMap="BaseResultMap">
+      SELECT name,pwd
+      FROM `online`
+      WHERE name = '1' AND pwd = '1'
+    </select>
+
 </mapper>
